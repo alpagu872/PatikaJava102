@@ -40,6 +40,14 @@ public class Calisan {
         System.out.println(this.adSoyad + " üniversiteye giriş yaptı.");
     }
 
+    public void giris(String girisSaati) {
+
+        System.out.println(this.adSoyad + " " + girisSaati + " saatinde üniversiteye giriş yaptı.");
+    }
+    public void giris(String girisSaati, String cikisSaati){
+        System.out.println(this.adSoyad  + " " + girisSaati +" saatinde üniversiteye giriş yaptı, " + cikisSaati+ " saatinde çıkış yapacaktır." );
+    }
+
     public void cikis() {
         System.out.println(this.adSoyad + " üniversiteden çıkış yaptı.");
     }

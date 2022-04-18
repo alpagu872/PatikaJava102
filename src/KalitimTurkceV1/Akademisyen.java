@@ -28,7 +28,13 @@ public class Akademisyen extends Calisan {
     public void setUnvan(String unvan) {
         this.unvan = unvan;
     }
+
     public void derseGir(){
         System.out.println( this.unvan +" "+ this.getAdSoyad() + " derse giriyor.");
+    }
+
+    @Override
+    public void giris(){
+        System.out.println(this.getAdSoyad() + " adlı akademisyen üniversiteye giriş yaptı.");
     }
 }

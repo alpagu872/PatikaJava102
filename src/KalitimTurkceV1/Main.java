@@ -13,7 +13,16 @@ public class Main {
         //a1.cikis();
         //a1.derseGir();
 
+        OgretimGorevlisi o1 = new OgretimGorevlisi("Alp", "0544512212","jkads@gmail.com","CENG","Prof.","24");
+
+
         Memur n1 = new Memur("Hasanc", "465546", "asdjb@gmail.com", "Bilgi İşlem", "09:00-18:00");
-        n1.calis();
+        //Metot overloading (Metotlarda aşırı yüklenme)
+        //n1.giris("10:00","18:00");
+        o1.giris();
+
+
+        a1.giris();
+
     }
 }

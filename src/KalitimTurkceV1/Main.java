@@ -20,9 +20,9 @@ public class Main {
         //Metot overloading (Metotlarda aşırı yüklenme)
         //n1.giris("10:00","18:00");
         o1.giris();
-
-
         a1.giris();
+        c1.giris();
+        n1.giris();
 
     }
 }

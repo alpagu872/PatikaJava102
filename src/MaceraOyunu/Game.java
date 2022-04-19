@@ -15,6 +15,8 @@ public class Game {
         Player player = new Player(playerName);
         System.out.println("Sayın "+ player.getName() + " bu karanlık ve sisli diyara hoşgeldin.");
         System.out.println("Burada yaşananların hepsi palavra...");
+        System.out.println("Lütfen oyuna başlamak için bir karakter seçiniz: ");
+        player.selectChar();
 
 
     }

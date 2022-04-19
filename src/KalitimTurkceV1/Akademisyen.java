@@ -1,6 +1,6 @@
 package KalitimTurkceV1;
 
-public class Akademisyen extends Calisan {
+public abstract class Akademisyen extends Calisan {
     // atası olan sınıfta eğer dolu bir cons var ise,
     // ata sınıftaki constructor'ı çağırmak zorunda
 
@@ -29,13 +29,11 @@ public class Akademisyen extends Calisan {
         this.unvan = unvan;
     }
 
-    public void derseGir(){
-        System.out.println( this.unvan +" "+ this.getAdSoyad() + " derse giriyor.");
-    }
+    public abstract void derseGir(String dersSaati);
 
     //OVERRIDE
     @Override
-    public void giris(){
+    public void giris() {
         System.out.println(this.getAdSoyad() + " adlı akademisyen  A kapısından üniversiteye giriş yaptı.");
     }
 }

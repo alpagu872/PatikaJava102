@@ -33,6 +33,7 @@ public class Akademisyen extends Calisan {
         System.out.println( this.unvan +" "+ this.getAdSoyad() + " derse giriyor.");
     }
 
+    //OVERRIDE
     @Override
     public void giris(){
         System.out.println(this.getAdSoyad() + " adlı akademisyen  A kapısından üniversiteye giriş yaptı.");

@@ -50,8 +50,9 @@ public class Player {
                 initPlayer(new Samurai());
         }
         System.out.println("Karakter: " + this.getCharName() + ", Hasar. " + this.getDamage() + ", Sağlık: " + this.getHealth() + ", Para: " + this.getMoney());
-
-
+    }
+    public void selectLocation(){
+        System.out.println("");
     }
 
     public void initPlayer(GameChar gameChar) {

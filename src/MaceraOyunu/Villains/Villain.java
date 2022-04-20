@@ -6,10 +6,12 @@ public class Villain {
     private int health;
     private int dropLootMoney;
     private String name;
+    private int originalHealth;
 
     public Villain(String name, int id, int damage, int health, int dropLootMoney) {
         this.id = id;
         this.damage = damage;
+        this.originalHealth = health;
         this.health = health;
         this.name = name;
         this.dropLootMoney = dropLootMoney;
@@ -21,6 +23,14 @@ public class Villain {
 
     public void setDropLootMoney(int dropLootMoney) {
         this.dropLootMoney = dropLootMoney;
+    }
+
+    public int getOriginalHealth() {
+        return originalHealth;
+    }
+
+    public void setOriginalHealth(int originalHealth) {
+        this.originalHealth = originalHealth;
     }
 
     public String getName() {
@@ -53,6 +63,9 @@ public class Villain {
     }
 
     public void setHealth(int health) {
+        if (health < 0 ){
+            health = 0;
+        }
         this.health = health;
     }
 }

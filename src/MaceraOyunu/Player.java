@@ -12,6 +12,7 @@ public class Player {
     private int damage;
     private int health;
     private int money;
+    private int defaultHealth;
     private String name;
     private String charName;
     private Scanner girdi = new Scanner(System.in);
@@ -22,10 +23,15 @@ public class Player {
         this.inventory = new Inventory();
     }
 
+    public int getDefaultHealth() {
+        return this.health;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
+    }
+
     public void selectChar() {
-        Samurai samurai = new Samurai();
-        Knight knight = new Knight();
-        Archer archer = new Archer();
 
         GameChar[] charList = {new Samurai(), new Archer(), new Knight(), new Mage()};
 
@@ -105,6 +111,9 @@ public class Player {
     }
 
     public void setHealth(int health) {
+        if (health < 0 ){
+            health = 0;
+        }
         this.health = health;
     }
 

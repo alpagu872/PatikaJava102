@@ -1,5 +1,8 @@
 package MaceraOyunu;
 
+import MaceraOyunu.Items.Armor;
+import MaceraOyunu.Items.Weapon;
+
 public class Inventory {
     private Weapon weapon;
     private Armor armor;

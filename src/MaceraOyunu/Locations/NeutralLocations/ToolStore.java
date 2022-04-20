@@ -1,4 +1,8 @@
-package MaceraOyunu;
+package MaceraOyunu.Locations.NeutralLocations;
+
+import MaceraOyunu.Items.Armor;
+import MaceraOyunu.Items.Weapon;
+import MaceraOyunu.Player;
 
 public class ToolStore extends NormalLoc {
     public ToolStore(Player player) {

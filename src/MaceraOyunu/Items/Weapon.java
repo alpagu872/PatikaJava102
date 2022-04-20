@@ -1,4 +1,4 @@
-package MaceraOyunu;
+package MaceraOyunu.Items;
 
 public class Weapon {
     private String name;

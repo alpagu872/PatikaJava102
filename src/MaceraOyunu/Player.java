@@ -1,5 +1,10 @@
 package MaceraOyunu;
 
+import MaceraOyunu.CharClasses.Archer;
+import MaceraOyunu.CharClasses.Knight;
+import MaceraOyunu.CharClasses.Mage;
+import MaceraOyunu.CharClasses.Samurai;
+
 import java.util.Scanner;
 
 public class Player {
@@ -66,11 +71,12 @@ public class Player {
 
         System.out.println(
                 " Silahınız: " + this.getInventory().getWeapon().getName() +
-                "\n Hasarınız:  " + this.getDamage() +
                 "\n Zırhınız:  " + this.getInventory().getArmor().getName() +
+                "\n Hasarınız:  " + this.getDamage() +
                 "\n Defansınız:  " + this.getInventory().getArmor().getBlock() +
                 "\n Sağlık: " + this.getHealth() +
                 "\n Para: " + this.getMoney());
+
     }
 
     public Inventory getInventory() {

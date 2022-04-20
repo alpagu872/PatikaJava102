@@ -1,4 +1,4 @@
-package MaceraOyunu;
+package MaceraOyunu.Items;
 
 public class Armor {
     private int id;

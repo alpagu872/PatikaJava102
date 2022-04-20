@@ -1,5 +1,12 @@
 package MaceraOyunu;
 
+import MaceraOyunu.Locations.BattleLocations.Cave;
+import MaceraOyunu.Locations.BattleLocations.Forest;
+import MaceraOyunu.Locations.BattleLocations.River;
+import MaceraOyunu.Locations.NeutralLocations.Location;
+import MaceraOyunu.Locations.NeutralLocations.SafeHouse;
+import MaceraOyunu.Locations.NeutralLocations.ToolStore;
+
 import java.util.Scanner;
 
 public class Game {
@@ -20,12 +27,16 @@ public class Game {
 
         Location location = null;
         while (true) {
-            player.printInfo();
+//
             System.out.println();
             System.out.println("Bölgeler:");
             System.out.println();
             System.out.println("1 - Güvenli EV");
             System.out.println("2 - Mağaza --> Ekipman veya zırh alabilirsiniz.");
+            System.out.println("3 - Mağaraya gir.");
+            System.out.println("4 - Ormana git.");
+            System.out.println("5 - Nehir Bölgesine git.");
+            System.out.println("6 - Kabine git.");
             System.out.println("Lütfen gitmek istediğiniz bölgeyi seçiniz: ");
             int selectLoc = girdi.nextInt();
 
@@ -39,11 +50,24 @@ public class Game {
                 case 2:
                     location = new ToolStore(player);
                     break;
+                case 3:
+                    location = new Cave(player);
+                    break;
+                case 4:
+                    location = new Forest(player);
+                    break;
+                case 5:
+                    location = new River(player);
+                    break;
+                case 6:
+                    player.printInfo();
+                    location = new SafeHouse(player);
+                    break;
                 default:
                     location = new SafeHouse(player);
             }
 
-            if (location == null){
+            if (location == null) {
                 System.out.println("Oyun bitti.");
                 break;
             }

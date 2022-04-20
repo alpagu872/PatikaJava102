@@ -1,4 +1,6 @@
-package MaceraOyunu;
+package MaceraOyunu.Locations.NeutralLocations;
+
+import MaceraOyunu.Player;
 
 import java.util.Scanner;
 

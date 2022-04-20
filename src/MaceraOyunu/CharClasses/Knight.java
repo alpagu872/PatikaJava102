@@ -1,4 +1,6 @@
-package MaceraOyunu;
+package MaceraOyunu.CharClasses;
+
+import MaceraOyunu.GameChar;
 
 public class Knight extends GameChar {
 

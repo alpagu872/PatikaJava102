@@ -4,13 +4,23 @@ public class Villain {
     private int id;
     private int damage;
     private int health;
+    private int dropLootMoney;
     private String name;
 
-    public Villain(String name, int id, int damage, int health ) {
+    public Villain(String name, int id, int damage, int health, int dropLootMoney) {
         this.id = id;
         this.damage = damage;
         this.health = health;
         this.name = name;
+        this.dropLootMoney = dropLootMoney;
+    }
+
+    public int getDropLootMoney() {
+        return dropLootMoney;
+    }
+
+    public void setDropLootMoney(int dropLootMoney) {
+        this.dropLootMoney = dropLootMoney;
     }
 
     public String getName() {
@@ -28,7 +38,6 @@ public class Villain {
     public void setId(int id) {
         this.id = id;
     }
-
 
 
     public int getDamage() {

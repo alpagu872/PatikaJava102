@@ -4,6 +4,7 @@ import MaceraOyunu.CharClasses.Archer;
 import MaceraOyunu.CharClasses.Knight;
 import MaceraOyunu.CharClasses.Mage;
 import MaceraOyunu.CharClasses.Samurai;
+import MaceraOyunu.Items.Weapon;
 
 import java.util.Scanner;
 
@@ -72,11 +73,15 @@ public class Player {
         System.out.println(
                 " Silahınız: " + this.getInventory().getWeapon().getName() +
                 "\n Zırhınız:  " + this.getInventory().getArmor().getName() +
-                "\n Hasarınız:  " + this.getDamage() +
+                "\n Hasarınız:  " + this.getTotalDamage() +
                 "\n Defansınız:  " + this.getInventory().getArmor().getBlock() +
                 "\n Sağlık: " + this.getHealth() +
                 "\n Para: " + this.getMoney());
 
+    }
+
+    public int getTotalDamage(){
+        return damage + this.getInventory().getWeapon().getDamage();
     }
 
     public Inventory getInventory() {
@@ -88,7 +93,7 @@ public class Player {
     }
 
     public int getDamage() {
-        return damage + this.getInventory().getWeapon().getDamage();
+        return damage;
     }
 
     public void setDamage(int damage) {
@@ -125,5 +130,9 @@ public class Player {
 
     public void setCharName(String charName) {
         this.charName = charName;
+    }
+
+    public Weapon getWeapon(){
+        return this.getInventory().getWeapon();
     }
 }

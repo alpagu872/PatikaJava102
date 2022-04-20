@@ -30,6 +30,9 @@ public class Game {
             int selectLoc = girdi.nextInt();
 
             switch (selectLoc) {
+                case 0:
+                    location = null;
+                    break;
                 case 1:
                     location = new SafeHouse(player); // Polymorphism
                     break;
@@ -38,6 +41,11 @@ public class Game {
                     break;
                 default:
                     location = new SafeHouse(player);
+            }
+
+            if (location == null){
+                System.out.println("Oyun bitti.");
+                break;
             }
             if (!location.onLocation()) {
                 System.out.println("Game over.");

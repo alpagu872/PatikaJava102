@@ -1,8 +1,11 @@
 package MaceraOyunu;
 
+import java.util.Scanner;
+
 public abstract class Location {
     private Player player;
     private String name;
+    protected Scanner girdi = new Scanner(System.in);
 
     public Location(Player player, String name) {
         this.player = player;

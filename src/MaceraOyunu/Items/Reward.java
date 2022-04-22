@@ -18,6 +18,16 @@ public class Reward {
         return rewardList;
     }
 
+    public static Reward getRewardById(int id) {
+
+        for (Reward w : Reward.Rewards()) {
+            if (w.getId() == id) {
+                return w;
+            }
+        }
+        return null;
+    }
+
     public String getName() {
         return name;
     }

@@ -1,5 +1,7 @@
 package MaceraOyunu.Villains;
 
+import java.util.Random;
+
 public class Villain {
     private int id;
     private int damage;
@@ -11,11 +13,23 @@ public class Villain {
     public Villain(String name, int id, int damage, int health, int dropLootMoney) {
         this.id = id;
         this.damage = damage;
+
+        if (this.id == 4) {
+            int calcDamage = 0, baseDamage = 3;
+            Random random = new Random();
+            int rand = random.nextInt(3);
+            calcDamage += baseDamage + rand;
+            System.out.println(calcDamage);
+            this.damage = calcDamage;
+
+
+        }
         this.originalHealth = health;
         this.health = health;
         this.name = name;
         this.dropLootMoney = dropLootMoney;
     }
+
 
     public int getDropLootMoney() {
         return dropLootMoney;
@@ -63,7 +77,7 @@ public class Villain {
     }
 
     public void setHealth(int health) {
-        if (health < 0 ){
+        if (health < 0) {
             health = 0;
         }
         this.health = health;

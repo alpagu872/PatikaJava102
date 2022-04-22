@@ -2,6 +2,7 @@ package MaceraOyunu;
 
 import MaceraOyunu.Locations.BattleLocations.Cave;
 import MaceraOyunu.Locations.BattleLocations.Forest;
+import MaceraOyunu.Locations.BattleLocations.Mine;
 import MaceraOyunu.Locations.BattleLocations.River;
 import MaceraOyunu.Locations.NeutralLocations.Location;
 import MaceraOyunu.Locations.NeutralLocations.SafeHouse;
@@ -36,7 +37,8 @@ public class Game {
             System.out.println("3 - Mağaraya gir.");
             System.out.println("4 - Ormana git.");
             System.out.println("5 - Nehir Bölgesine git.");
-            System.out.println("6 - Kabine git.");
+            System.out.println("6 - Madene git.");
+            System.out.println("7 - Kabine git.");
             System.out.println("Lütfen gitmek istediğiniz bölgeyi seçiniz: ");
             int selectLoc = girdi.nextInt();
 
@@ -60,6 +62,9 @@ public class Game {
                     location = new River(player);
                     break;
                 case 6:
+                    location = new Mine(player);
+                    break;
+                case 7:
                     player.printInfo();
                     location = new SafeHouse(player);
                     break;

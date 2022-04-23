@@ -12,7 +12,7 @@ public class Player {
     private int damage;
     private int health;
     private int money;
-    private int defaultHealth;
+    private int defaultHealth ;
     private String name;
     private String charName;
     private Scanner girdi = new Scanner(System.in);
@@ -24,7 +24,7 @@ public class Player {
     }
 
     public int getDefaultHealth() {
-        return this.health;
+        return defaultHealth;
     }
 
     public void setDefaultHealth(int defaultHealth) {
@@ -70,6 +70,7 @@ public class Player {
     public void initPlayer(GameChar gameChar) {
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
+        this.setDefaultHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
         this.setCharName(gameChar.getName());
     }

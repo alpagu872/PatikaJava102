@@ -21,12 +21,13 @@ public class Villain {
             calcDamage += baseDamage + rand;
             System.out.println(calcDamage);
             this.damage = calcDamage;
-
-
         }
         this.originalHealth = health;
         this.health = health;
         this.name = name;
+        if (this.id == 4){
+
+        }
         this.dropLootMoney = dropLootMoney;
     }
 

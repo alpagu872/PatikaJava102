@@ -4,6 +4,8 @@ import MaceraOyunu.Locations.NeutralLocations.Location;
 import MaceraOyunu.Player;
 import MaceraOyunu.Villains.Villain;
 
+import java.util.Random;
+
 public abstract class BattleLoc extends Location {
     private Villain villain;
     private String award;
@@ -43,19 +45,26 @@ public abstract class BattleLoc extends Location {
     }
 
     public boolean combat(int villainCount) {
+
+        //TODO RANDOM SALDIRANIN OLACAĞI YER
+
+
         for (int i = 0; i < villainCount; i++) {
             this.getVillain().setHealth(this.getVillain().getOriginalHealth());
             playerStats();
             villainStats(i + 1);
             while (this.getPlayer().getHealth() > 0 && this.getVillain().getHealth() > 0) {
+                int random = rand.nextInt(100);
                 System.out.print("<V>ur veya <K>aç : ");
                 String selectCombat = girdi.nextLine().toUpperCase();
-                if (selectCombat.equals("V")) {
 
-                    System.out.println("Siz vurdunuz");
-                    this.getVillain().setHealth(this.getVillain().getHealth() - this.getPlayer().getTotalDamage());
-                    afterHit();
-                    if (this.getVillain().getHealth() > 0) {
+                if (selectCombat.equals("V")) {
+                    System.out.println(random);
+                    if (random > 50) {
+                        System.out.println("Siz vurdunuz");
+                        this.getVillain().setHealth(this.getVillain().getHealth() - this.getPlayer().getTotalDamage());
+                        afterHit();
+                    } else if (this.getVillain().getHealth() > 0 && random < 50) {
                         System.out.println();
 
                         int villainDamage = this.getVillain().getDamage() - this.getPlayer().getInventory().getArmor().getBlock();
@@ -71,6 +80,7 @@ public abstract class BattleLoc extends Location {
                     return false;
                 }
             }
+
             if (this.getVillain().getHealth() < this.getPlayer().getHealth()) {
                 System.out.println("Düşmanı yendiniz!");
                 System.out.println(this.getVillain().getDropLootMoney() + " birim para kazandınız.");

@@ -2,12 +2,14 @@ package MaceraOyunu.Locations.NeutralLocations;
 
 import MaceraOyunu.Player;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Location {
     private Player player;
     private String name;
     protected Scanner girdi = new Scanner(System.in);
+    protected Random rand = new Random();
 
     public Location(Player player, String name) {
         this.player = player;

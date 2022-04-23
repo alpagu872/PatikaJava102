@@ -14,7 +14,6 @@ public abstract class GameChar {
         this.damage = damage;
         this.health = health;
         this.money = money;
-
     }
 
     public int getId() {

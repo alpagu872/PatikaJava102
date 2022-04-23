@@ -18,9 +18,9 @@ public class Game {
 
         System.out.println("Macera oyununa hoşgeldiniz.");
         System.out.print("Lütfen bir isim giriniz: ");
-        //String playerName = girdi.nextLine();
+        String playerName = girdi.nextLine();
 
-        Player player = new Player("Alpagu");
+        Player player = new Player(playerName);
         System.out.println("Sayın " + player.getName() + " bu karanlık ve sisli diyara hoşgeldin.");
         System.out.println("Burada yaşananların hepsi palavra...");
         System.out.println("Lütfen oyuna başlamak için bir karakter seçiniz: ");
@@ -28,7 +28,11 @@ public class Game {
 
         Location location = null;
         while (true) {
-//
+            if (isWin(player)) {
+                System.out.println("| Oyunu başarıyla bitirdiniz. |");
+                break;
+            }
+
             System.out.println();
             System.out.println("Bölgeler:");
             System.out.println();
@@ -41,10 +45,7 @@ public class Game {
             System.out.println("7 - Kabine git.");
             System.out.println("Lütfen gitmek istediğiniz bölgeyi seçiniz: ");
             int selectLoc = girdi.nextInt();
-            if (isWin(player)){
-                System.out.println("Oyunu başarıyla bitirdiniz. Tebrikler");
-                break;
-            }
+
 
             switch (selectLoc) {
                 case 0:
@@ -58,28 +59,12 @@ public class Game {
                     break;
                 case 3:
                     location = new Cave(player);
-                    if (player.getInventory().isFood()){
-                        System.out.println("Bu bölgeyi tamamladınız.");
-                        break;
-                    }
                     break;
                 case 4:
                     location = new Forest(player);
-                    if (player.getInventory().isFirewood()){
-                        System.out.println("Bu bölgeyi tamamladınız.");
-                        break;
-                    }
                     break;
                 case 5:
                     location = new River(player);
-                    if (player.getInventory().isWater()){
-                        System.out.println("Bu bölgeyi tamamladınız.");
-                        break;
-                    }
-                    if (isWin(player)){
-                        System.out.println("Oyunu başarıyla bitirdiniz. Tebrikler");
-                        break;
-                    }
                     break;
                 case 6:
                     location = new Mine(player);
@@ -89,11 +74,10 @@ public class Game {
                     location = new SafeHouse(player);
                     break;
                 default:
+
                     location = new SafeHouse(player);
                     break;
             }
-
-
             if (location == null) {
                 System.out.println("Oyun bitti.");
                 break;
@@ -108,7 +92,8 @@ public class Game {
 
 
     }
-    public boolean isWin(Player player){
+
+    public boolean isWin(Player player) {
         return player.getInventory().isWater() && player.getInventory().isFood() && player.getInventory().isFirewood();
 
     }

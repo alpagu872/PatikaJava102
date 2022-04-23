@@ -24,6 +24,24 @@ public abstract class BattleLoc extends Location {
 
     @Override
     public boolean onLocation() {
+        if (this.getName().equals("Mağara")) {
+            if (this.getPlayer().getInventory().isFood()) {
+                System.out.println("Bu bölgeyi tamamladınız.");
+                return true;
+            }
+        }
+        if (this.getName().equals("Orman")) {
+            if (this.getPlayer().getInventory().isFirewood()) {
+                System.out.println("Bu bölgeyi tamamladınız.");
+                return true;
+            }
+        }
+        if (this.getName().equals("Nehir")) {
+            if (this.getPlayer().getInventory().isWater()) {
+                System.out.println("Bu bölgeyi tamamladınız.");
+                return true;
+            }
+        }
         int count = randomVillainCount();
         System.out.println("Şu an bulunduğunuz yer: " + this.getName());
         System.out.println("Dikkatli ol! Burada " + count + " tane " + this.getVillain().getName() + " yaşıyor !");
@@ -34,8 +52,7 @@ public abstract class BattleLoc extends Location {
         selectFightCase = selectFightCase.toUpperCase();
 
         if (selectFightCase.equals("S") && combat(count)) {
-            int result = count;
-            System.out.println(this.getPlayer().getName() + " Kazandınız Tebrikler");
+            System.out.println(this.getPlayer().getName() + " Bölgeyi başarıyla temizlediniz.");
             return true;
 
         }
@@ -106,28 +123,28 @@ public abstract class BattleLoc extends Location {
 
         }
         System.out.println(result);
-        if(result == 0){
+        if (result == 0) {
 
             //Giving the special prize to player for killing all of the monsters of the related area
-            if (this.getName().equals("Nehir")) {
+            if (this.getName().equals("Orman")) {
 
                 this.getPlayer().getInventory().setFirewood(true);
                 System.out.println("--------------------------------------------------------------------------------");
-                System.out.println("|You have recieved your special prize which is 'FireWood' from River location. |");
+                System.out.println("|Orman bölgesinden 'Odun' elde ettiniz. |");
                 System.out.println("--------------------------------------------------------------------------------");
 
             } else if (this.getName().equals("Mağara")) {
 
                 this.getPlayer().getInventory().setFood(true);
                 System.out.println("--------------------------------------------------------------------------------");
-                System.out.println("|You have recieved your special prize which is 'Food' from Cave location.       |");
+                System.out.println("|Mağarada 'Yemek' buldunuz! |");
                 System.out.println("--------------------------------------------------------------------------------");
 
-            } else if (this.getName().equals("Orman")) {
+            } else if (this.getName().equals("Nehir")) {
 
                 this.getPlayer().getInventory().setWater(true);
                 System.out.println("-------------------------------------------------------------------------------");
-                System.out.println("|You have recieved your special prize which is 'Water' from Forest location.   |");
+                System.out.println("|Nehir bölgesinden 'Su' aldınız!   |");
                 System.out.println("--------------------------------------------------------------------------------");
             }
 

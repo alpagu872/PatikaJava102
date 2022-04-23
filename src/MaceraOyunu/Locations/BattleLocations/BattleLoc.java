@@ -105,7 +105,7 @@ public abstract class BattleLoc extends Location {
 
             if (this.getVillain().getHealth() < this.getPlayer().getHealth()) {
 
-                if (!this.getName().equals("Mine")) {
+                if (!this.getName().equals("Maden")) {
 
                     System.out.println("Düşmanı yendiniz!");
                     System.out.println(this.getVillain().getDrop() + " birim para kazandınız.");
@@ -113,6 +113,9 @@ public abstract class BattleLoc extends Location {
                     int prizeInt = this.getPlayer().getMoney() + Integer.parseInt(prize);
                     this.getPlayer().setMoney(prizeInt);
                     System.out.println("Güncel paranız: " + this.getPlayer().getMoney());
+
+                }else if (this.getName().equals("Maden")){
+                    System.out.println("Madendesiniz henüz droplar ayarlanmadı...");
 
                 }
 

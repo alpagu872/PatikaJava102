@@ -19,39 +19,39 @@ Bölge Ödülleri :
 //Ödüller eklendi. implementasyonu ise henüz yapılmadı.
 
 
-2 - Oyuncu bir canavarla karşılaştığında ilk hamleyi kimin 
+2 - ~~Oyuncu bir canavarla karşılaştığında ilk hamleyi kimin 
 yapacağını, %50 şans ile belirlenmesi. (Şuan ki durumda ilk 
-vuran her zaman oyuncu)
-
-//BattleLoc combat metodu*
-    rand calc
+vuran her zaman oyuncu)~~
 
 
 
-3 - Yeni bir savaş bölgesi eklenmeli.
+
+
+3 - ~~Yeni bir savaş bölgesi eklenmeli.~~
 // Bölge eklendi.
 
-Bu bölgenin amacı yenilen rakiplerden rastgele para,
-silah veya zırh kazanma ihtimali olması.
+~~Bu bölgenin amacı yenilen rakiplerden rastgele para,
+silah veya zırh kazanma ihtimali olması.~~
 //Inventory sınıfı ve combat modülü
 
-Bölge Adı : Maden  ++
+~~Bölge Adı : Maden  ++
 Canavar : Yılan (1-5 Adet) ++
 Özellik : Savaş ve Ganimet --
-Eşya : Para, Silah veya Zırh --
+Eşya : Para, Silah veya Zırh --~~
 
 
-Yılan Özellikleri :
-//YILAN EKLENDİ, 3-6 ARASI RASTGELE HASAR VURMA EKLENDİ.
+~~Yılan Özellikleri :~~
 
-ID : 4 
+~~ID : 4
 HASAR : Rastgele (3 ve 6 arası)++
 SAĞLIK :12++
-PARA : Yok (Onun yerine eşya kazanma ihtimali) --
+PARA : Yok (Onun yerine eşya kazanma ihtimali) --~~
 
-Yenilen rakiplerden düşen eşyalar :
+//YILAN EKLENDİ, 3-6 ARASI RASTGELE HASAR VURMA EKLENDİ.
 
-Silah Kazanma İhtimali : 15%
+~~Yenilen rakiplerden düşen eşyalar :~~
+
+~~Silah Kazanma İhtimali : 15%
 Tüfek Kazanma İhtimali : 20%
 Kılıç Kazanma İhtimali : 30%
 Tabanca Kazanma İhtimali : 50%
@@ -62,6 +62,6 @@ Hafif Zırh Kazanma İhtimali : 50%
 Para Kazanma İhtimali : 25%
 10 Para Kazanma İhtimali: 20%
 5 Para Kazanma İhtimali: 30%
-1 Para Kazanma İhtimali: 50%
+1 Para Kazanma İhtimali: 50%~~
 
-Hiç birşey kazanamama ihtimali : 45%
+~~Hiç birşey kazanamama ihtimali : 45%~~

@@ -41,6 +41,10 @@ public class Game {
             System.out.println("7 - Kabine git.");
             System.out.println("Lütfen gitmek istediğiniz bölgeyi seçiniz: ");
             int selectLoc = girdi.nextInt();
+            if (isWin(player)){
+                System.out.println("Oyunu başarıyla bitirdiniz. Tebrikler");
+                break;
+            }
 
             switch (selectLoc) {
                 case 0:
@@ -54,12 +58,28 @@ public class Game {
                     break;
                 case 3:
                     location = new Cave(player);
+                    if (player.getInventory().isFood()){
+                        System.out.println("Bu bölgeyi tamamladınız.");
+                        break;
+                    }
                     break;
                 case 4:
                     location = new Forest(player);
+                    if (player.getInventory().isFirewood()){
+                        System.out.println("Bu bölgeyi tamamladınız.");
+                        break;
+                    }
                     break;
                 case 5:
                     location = new River(player);
+                    if (player.getInventory().isWater()){
+                        System.out.println("Bu bölgeyi tamamladınız.");
+                        break;
+                    }
+                    if (isWin(player)){
+                        System.out.println("Oyunu başarıyla bitirdiniz. Tebrikler");
+                        break;
+                    }
                     break;
                 case 6:
                     location = new Mine(player);
@@ -70,7 +90,9 @@ public class Game {
                     break;
                 default:
                     location = new SafeHouse(player);
+                    break;
             }
+
 
             if (location == null) {
                 System.out.println("Oyun bitti.");
@@ -84,6 +106,10 @@ public class Game {
 
         }
 
+
+    }
+    public boolean isWin(Player player){
+        return player.getInventory().isWater() && player.getInventory().isFood() && player.getInventory().isFirewood();
 
     }
 }

@@ -29,11 +29,12 @@ public abstract class BattleLoc extends Location {
         System.out.println("Dikkatli ol! Burada " + count + " tane " + this.getVillain().getName() + " yaşıyor !");
 
         System.out.print("<S>avaş veya <K>aç :");
+
         String selectFightCase = girdi.nextLine();
         selectFightCase = selectFightCase.toUpperCase();
 
         if (selectFightCase.equals("S") && combat(count)) {
-
+            int result = count;
             System.out.println(this.getPlayer().getName() + " Kazandınız Tebrikler");
             return true;
 
@@ -51,6 +52,7 @@ public abstract class BattleLoc extends Location {
 
         int counter = 0;
         boolean isFirst = true;
+        int result = villainCount;
 
         for (int i = 0; i < villainCount; i++) {
             this.getVillain().setHealth(this.getVillain().getOriginalHealth());
@@ -59,12 +61,11 @@ public abstract class BattleLoc extends Location {
             int firstHitChanceRand = rand.nextInt(100);
 
             while (this.getPlayer().getHealth() > 0 && this.getVillain().getHealth() > 0) {
-                System.out.println(counter);
+
                 System.out.print("<V>ur veya <K>aç : ");
                 String selectCombat = girdi.nextLine().toUpperCase();
 
                 if (selectCombat.equals("V")) {
-                    System.out.println(firstHitChanceRand);
                     if (isFirst && counter == 0 && firstHitChanceRand > 50) {
                         System.out.println("İlk siz vurdunuz");
                         this.getVillain().setHealth(this.getVillain().getHealth() - this.getPlayer().getTotalDamage());
@@ -83,11 +84,13 @@ public abstract class BattleLoc extends Location {
                         System.out.println();
                         villainHitCalc();
                     }
+
                     counter++;
                 } else {
                     return false;
                 }
             }
+            result--;
 
             if (this.getVillain().getHealth() < this.getPlayer().getHealth()) {
 
@@ -100,9 +103,39 @@ public abstract class BattleLoc extends Location {
             } else {
                 return false;
             }
+
+        }
+        System.out.println(result);
+        if(result == 0){
+
+            //Giving the special prize to player for killing all of the monsters of the related area
+            if (this.getName().equals("Nehir")) {
+
+                this.getPlayer().getInventory().setFirewood(true);
+                System.out.println("--------------------------------------------------------------------------------");
+                System.out.println("|You have recieved your special prize which is 'FireWood' from River location. |");
+                System.out.println("--------------------------------------------------------------------------------");
+
+            } else if (this.getName().equals("Mağara")) {
+
+                this.getPlayer().getInventory().setFood(true);
+                System.out.println("--------------------------------------------------------------------------------");
+                System.out.println("|You have recieved your special prize which is 'Food' from Cave location.       |");
+                System.out.println("--------------------------------------------------------------------------------");
+
+            } else if (this.getName().equals("Orman")) {
+
+                this.getPlayer().getInventory().setWater(true);
+                System.out.println("-------------------------------------------------------------------------------");
+                System.out.println("|You have recieved your special prize which is 'Water' from Forest location.   |");
+                System.out.println("--------------------------------------------------------------------------------");
+            }
+
         }
         return true;
+
     }
+
 
     private void villainHitCalc() {
         int villainDamage = this.getVillain().getDamage() - this.getPlayer().getInventory().getArmor().getBlock();

@@ -6,11 +6,11 @@ public class Villain {
     private int id;
     private int damage;
     private int health;
-    private int dropLootMoney;
+    private String drop;
     private String name;
     private int originalHealth;
 
-    public Villain(String name, int id, int damage, int health, int dropLootMoney) {
+    public Villain(String name, int id, int damage, int health, String drop) {
         this.id = id;
         this.damage = damage;
 
@@ -28,16 +28,16 @@ public class Villain {
         if (this.id == 4){
 
         }
-        this.dropLootMoney = dropLootMoney;
+        this.drop = drop;
     }
 
 
-    public int getDropLootMoney() {
-        return dropLootMoney;
+    public String getDrop() {
+        return drop;
     }
 
-    public void setDropLootMoney(int dropLootMoney) {
-        this.dropLootMoney = dropLootMoney;
+    public void setDrop(String drop) {
+        this.drop = drop;
     }
 
     public int getOriginalHealth() {

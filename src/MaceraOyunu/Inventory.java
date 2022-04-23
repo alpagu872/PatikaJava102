@@ -7,20 +7,42 @@ import MaceraOyunu.Items.Weapon;
 public class Inventory {
     private Weapon weapon;
     private Armor armor;
-    private Reward reward;
+    private boolean water;
+    private boolean firewood;
+    private boolean food;
+
 
     public Inventory(){
         this.weapon = new Weapon("Yumruk",0,0,0);
         this.armor = new Armor("Çulsuz",0,0,0);
-        this.reward = new Reward(0,"Boş");
+
+        this.water = false;
+        this.firewood = false;
+        this.food = false;
     }
 
-    public Reward getReward() {
-        return reward;
+    public boolean isWater() {
+        return water;
     }
 
-    public void setReward(Reward reward) {
-        this.reward = reward;
+    public void setWater(boolean water) {
+        this.water = water;
+    }
+
+    public boolean isFirewood() {
+        return firewood;
+    }
+
+    public void setFirewood(boolean firewood) {
+        this.firewood = firewood;
+    }
+
+    public boolean isFood() {
+        return food;
+    }
+
+    public void setFood(boolean food) {
+        this.food = food;
     }
 
     public Armor getArmor() {

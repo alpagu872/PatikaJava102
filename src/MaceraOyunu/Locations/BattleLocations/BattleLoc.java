@@ -46,8 +46,6 @@ public abstract class BattleLoc extends Location {
 
     public boolean combat(int villainCount) {
 
-        //TODO RANDOM SALDIRANIN OLACAĞI YER
-
         int counter = 0;
         boolean isFirst = true;
 
@@ -69,7 +67,7 @@ public abstract class BattleLoc extends Location {
                         this.getVillain().setHealth(this.getVillain().getHealth() - this.getPlayer().getTotalDamage());
                         afterHit();
                         isFirst = false;
-                    } else if (random < 50 && isFirst ) {
+                    } else if (random < 50 && isFirst) {
                         System.out.println();
                         System.out.println("İlk " + getVillain().getName() + " size vurdu.");
 
@@ -106,10 +104,19 @@ public abstract class BattleLoc extends Location {
             }
 
             if (this.getVillain().getHealth() < this.getPlayer().getHealth()) {
-                System.out.println("Düşmanı yendiniz!");
-                System.out.println(this.getVillain().getDropLootMoney() + " birim para kazandınız.");
-                this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getVillain().getDropLootMoney());
-                System.out.println("Güncel paranız: " + this.getPlayer().getMoney());
+
+                if (!this.getName().equals("Mine")) {
+
+                    System.out.println("Düşmanı yendiniz!");
+                    System.out.println(this.getVillain().getDrop() + " birim para kazandınız.");
+                    String prize = this.getVillain().getDrop();
+                    int prizeInt = this.getPlayer().getMoney() + Integer.parseInt(prize);
+                    this.getPlayer().setMoney(prizeInt);
+                    System.out.println("Güncel paranız: " + this.getPlayer().getMoney());
+
+                }
+
+
             } else {
                 return false;
             }
@@ -130,7 +137,7 @@ public abstract class BattleLoc extends Location {
         System.out.println("************");
         System.out.println("Sağlık: " + this.getVillain().getHealth());
         System.out.println("Hasar: " + this.getVillain().getDamage());
-        System.out.println("Düşecek Loot: " + this.getVillain().getDropLootMoney());
+        System.out.println("Düşecek Loot: " + this.getVillain().getDrop());
         System.out.println();
     }
 

@@ -7,8 +7,10 @@ public class Main {
         Game game = new Game();
         game.start();
 
-        //TODO ANA DEĞİŞİKLİKLER
-        // İlk saldıran rastgele olmalı ++ SALDIRILARIN %50 İHTİMALLE ISKALANMA OLASILIĞI VAR.
+        //TODO FIXED OR ADDED
+        // İlk saldıran rastgele olmalı ÇÖZÜLDÜ
+
+        //TODO ADD ME
         // yenilen rakiplerden rastgele para,silah veya zırh kazanma ihtimali olması.
         // Yılanlardan para değil random item düşmeli, firewood vs. PARA : Yok (Onun yerine eşya kazanma ihtimali) --
 

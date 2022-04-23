@@ -48,23 +48,46 @@ public abstract class BattleLoc extends Location {
 
         //TODO RANDOM SALDIRANIN OLACAĞI YER
 
+        int counter = 0;
+        boolean isFirst = true;
 
         for (int i = 0; i < villainCount; i++) {
             this.getVillain().setHealth(this.getVillain().getOriginalHealth());
             playerStats();
             villainStats(i + 1);
+            int random = rand.nextInt(100);
+
             while (this.getPlayer().getHealth() > 0 && this.getVillain().getHealth() > 0) {
-                int random = rand.nextInt(100);
+                System.out.println(counter);
                 System.out.print("<V>ur veya <K>aç : ");
                 String selectCombat = girdi.nextLine().toUpperCase();
 
                 if (selectCombat.equals("V")) {
                     System.out.println(random);
-                    if (random > 50) {
-                        System.out.println("Siz vurdunuz");
+                    if (isFirst && counter == 0 && random > 50) {
+                        System.out.println("İlk siz vurdunuz");
                         this.getVillain().setHealth(this.getVillain().getHealth() - this.getPlayer().getTotalDamage());
                         afterHit();
-                    } else if (this.getVillain().getHealth() > 0 && random < 50) {
+                        isFirst = false;
+                    } else if (random < 50 && isFirst ) {
+                        System.out.println();
+                        System.out.println("İlk " + getVillain().getName() + " size vurdu.");
+
+                        int villainDamage = this.getVillain().getDamage() - this.getPlayer().getInventory().getArmor().getBlock();
+                        System.out.println("Canavar size " + villainDamage + " hasar vurdu. ");
+
+                        if (villainDamage < 0) {
+                            villainDamage = 0;
+                        }
+                        this.getPlayer().setHealth(this.getPlayer().getHealth() - villainDamage);
+                        afterHit();
+                        isFirst = false;
+                    }
+                    System.out.println("Siz vurdunuz");
+                    this.getVillain().setHealth(this.getVillain().getHealth() - this.getPlayer().getTotalDamage());
+                    afterHit();
+
+                    if (this.getVillain().getHealth() > 0) {
                         System.out.println();
 
                         int villainDamage = this.getVillain().getDamage() - this.getPlayer().getInventory().getArmor().getBlock();
@@ -76,6 +99,7 @@ public abstract class BattleLoc extends Location {
                         this.getPlayer().setHealth(this.getPlayer().getHealth() - villainDamage);
                         afterHit();
                     }
+                    counter++;
                 } else {
                     return false;
                 }

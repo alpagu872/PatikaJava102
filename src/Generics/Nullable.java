@@ -1,24 +1,24 @@
 package Generics;
 
-public class Nullable {
-    private final String value;
+public class Nullable <T> {
+    private final T value;
 
-    public Nullable(String value) {
+    public Nullable(T value) {
         this.value = value;
     }
 
-    public String getValue() {
+    public T getValue() {
         return value;
     }
 
-    public boolean isNull() {
+    public boolean isNull(){
         return this.getValue() == null;
     }
 
-    public void run() {
-        if (isNull()) {
-            System.out.println("Bu değişkene bir değer atanmamıştır. (Null)");
-        } else {
+    public void run(){
+        if (isNull()){
+            System.out.println("Bu değişkene değer atanmamıştır.");
+        }else {
             System.out.println(this.value);
         }
     }

@@ -2,24 +2,15 @@ package Generics;
 
 public class Main {
     public static void main(String[] args) {
-        //undefined
-        String s;
+        Integer a = 10;
+        String b = "Alpagu";
+        Double d = 3.14;
+        String c = "Dev";
+        Nullable<Integer> integerNullable = new Nullable<>(a);
+        //integerNullable.run();
 
-        //null
-        String s1 = null;
-
-        //empty
-        String s2 = " ";
-
-
-        String str2 = null;
-        String str = "456456";
-        Nullable n = new Nullable(str2);
-        n.run();
-
-        Integer a = null;
-        NullableInteger integer = new NullableInteger(a);
-        integer.run();
+        Test<Double, String, Integer> test = new Test(d, b, a);
+        test.showInfo();
 
 
     }

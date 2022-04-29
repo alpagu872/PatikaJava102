@@ -1,5 +1,7 @@
 package Generics.ListeOdevi;
 
+import java.util.Arrays;
+
 public class MyList<T> {
 
     Object[] list;
@@ -31,7 +33,7 @@ public class MyList<T> {
             }
             list = tempList;
         }
-        list[endIdx--] = data;
+        list[endIdx++] = data;
         count++;
     }
 
@@ -60,6 +62,72 @@ public class MyList<T> {
     public void set(int index, T data) {
         if (index < 0 || list.length <= index) return;
         list[index] = data;
+    }
+
+    public String toString() {
+        String stringList = "[";
+        for (int i = 0; i < size(); i++) {
+            stringList += list[i];
+            stringList += ",";
+        }
+        int end = stringList.length();
+        stringList = stringList.substring(0, end - 1);
+        stringList += "]";
+        return stringList;
+
+    }
+
+    public int indexOf(T data) {
+        for (int i = 0; i < list.length; i++) {
+            if (data.equals(list[i])) return i;
+        }
+        return -1;
+    }
+
+    public int lastIndexOf(T data) {
+        for (int i = endIdx; 0 <= i; i--) {
+            if (data.equals(list[i])) return i;
+        }
+        return -1;
+    }
+
+    public boolean isEmpty() {
+        return count == 0;
+    }
+
+    public T[] toArray() {
+        return Arrays.copyOf((T[]) list, count);
+    }
+
+    public void clear() {
+        for (int i = 0; i < list.length; i++) {
+            list[i] = null;
+        }
+
+        count = 0;
+    }
+
+
+    public MyList<T> sublist(int start, int end) {
+        if ((start < 0 || list.length <= start) && (end < 0 || list.length <= end)) {
+            return null;
+        }
+        int sublistLength = end - start;
+
+        MyList<T> sublistObject = new MyList<>(sublistLength);
+        for (int i = start; i < end; i++) {
+            sublistObject.add((T) list);
+        }
+        return sublistObject;
+    }
+
+    public boolean contains(T data) {
+        for (Object o : list
+        ) {
+            if (data.equals(o)) return true;
+
+        }
+        return false;
     }
 
 

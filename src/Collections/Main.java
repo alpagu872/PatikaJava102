@@ -13,7 +13,7 @@ public class Main {
         hSet.add(30);
 
         Iterator<Integer> itr = hSet.iterator();
-        while (itr.hasNext()){
+        while (itr.hasNext()) {
             System.out.println(itr.next());
         }
 

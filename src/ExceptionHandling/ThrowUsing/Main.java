@@ -8,17 +8,15 @@ public class Main {
         int age = girdi.nextInt();
         try {
             checkAge(age);
-        }catch (Exception e){
-            System.out.println("Hata");
+        } catch (AgeCheckException e) {
+            throw new RuntimeException(e);
         }
-
-        System.out.println("Program bitti.");
-
     }
 
-    public static void checkAge(int age) throws Exception {
+
+    public static void checkAge(int age) throws AgeCheckException {
         if (age < 18) {
-            throw new Exception("Dışarı çıkamazsınız");
+            throw new AgeCheckException("Yaş hatası !");
         } else {
             System.out.println("Yaşı uygundur.");
         }

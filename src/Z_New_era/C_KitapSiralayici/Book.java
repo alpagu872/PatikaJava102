@@ -4,9 +4,9 @@ public class Book implements Comparable<Book>{
     private String name;
     private int pageCount;
     private String bookOwner;
-    private int publishDate;
+    private String publishDate;
 
-    public Book(String name, int pageCount, String bookOwner,  int publishDate) {
+    public Book(String name, int pageCount, String bookOwner,  String publishDate) {
         this.name = name;
         this.bookOwner = bookOwner;
         this.publishDate = publishDate;
@@ -29,11 +29,11 @@ public class Book implements Comparable<Book>{
         this.bookOwner = bookOwner;
     }
 
-    public int getPublishDate() {
+    public String getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(int publishDate) {
+    public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
     }
 

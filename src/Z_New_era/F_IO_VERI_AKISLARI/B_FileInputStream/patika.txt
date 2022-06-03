@@ -1,0 +1,3 @@
+Patika.dev ALpagu.dev
+Falan
+Bu bir file input stream örneğidir.
